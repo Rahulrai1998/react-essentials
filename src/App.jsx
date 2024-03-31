@@ -1,35 +1,13 @@
-import reactImg from "./assets/react-core-concepts.png";
+import CoreConcept from "./components/CoreConcept.jsx";
+import Header from "./components/Header/Header.jsx";
 
 import { CORE_CONCEPTS } from "../data.js";
-
-// OUTPUING DYNAMIC VALUES
-const arr = ["Core", "Fundamental", "Promising"];
-function test(num) {
-  return Math.floor(Math.random() * (num + 1));
-}
-
-function CoreConcept({ image, header, description }) {
-  return (
-    <li>
-      <img src={image} alt="Image" />
-      <h3>{header}</h3>
-      <p>{description}</p>
-    </li>
-  );
-}
+import TabButton from "./components/TabButton.jsx";
 
 function App() {
-  const description = arr[test(2)];
   return (
     <div>
-      <header>
-        <img src={reactImg} alt="Stylized atom" />
-        <h1>React Essentials</h1>
-        <p>
-          {description} React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
+      <Header />
       <main>
         <section id="core-concepts">
           <h2>Time to get started!</h2>
@@ -43,6 +21,15 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[2]} />
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton>Components</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>State</TabButton>
+          </menu>
         </section>
       </main>
     </div>
